@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bank Breaker - A Financial Literacy Game</title>
+    <style>* { padding: 0; margin: 0; }</style>
+    <script src="js/phaser.min.js"></script>
+</head>
+<body>
+<script>
+  //making a change to the file
+    <!-- initialize vars -->
+
+    var game = new Phaser.Game(480, 320, Phaser.CANVAS, null, {
+      preload: preload, create: create, update: update
+    });
+    var ball;
+    var paddle;
+    var bricks, newBrick, brickInfo;
+    var scoreText, score = 0; disp_score = score.toFixed(2);
+    var interest = 0
+    var lives = 3;
+	var livesText;
+	var lifeLostText;
+	var playing = false;
+	var startButton;
+
+    function preload() {
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.stage.backgroundColor = '#133a99';
+        game.load.image('ball', 'img/ball.png');
+        game.load.image('paddle', 'img/paddle.png');
+        game.load.image('brick', 'img/brick.png');
+        game.load.spritesheet('ball', 'img/wobble.png', 20, 20);
+        game.load.spritesheet('button', 'img/button.png', 120, 40);
+    }
+
+    function create() {
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        ball = game.add.sprite(game.world.width*0.5, game.world.height-25, 'ball');
+       	ball.animations.add('wobble', [0,1,0,2,0,1,0,2,0], 24);
+        ball.anchor.set(0.5);
+        game.physics.enable(ball, Phaser.Physics.ARCADE);
+        ball.body.collideWorldBounds = true;
+        ball.body.bounce.set(1);
+        game.physics.arcade.checkCollision.down = false;
+        ball.checkWorldBounds = true;
+        ball.events.onOutOfBounds.add(ballLeaveScreen, this);
+        paddle = game.add.sprite(game.world.width*0.5, game.world.height-5, 'paddle');
+        paddle.anchor.set(0.5,1);
+        game.physics.enable(paddle, Phaser.Physics.ARCADE);
+        paddle.body.immovable = true;
+        initBricks();
+
+        textStyle = { font: '18px Arial', fill: '#fffefd' };
+
+        scoreText = game.add.text(5, 5, 'Bank Balance: $'+disp_score, textStyle);
+		interestText = game.add.text(game.world.width/1.65,5, 'Interest: '+interest+'%', textStyle);
+		livesText = game.add.text(game.world.width-5, 5, 'Lives: '+lives, textStyle);
+		livesText.anchor.set(1,0);
+		lifeLostText = game.add.text(game.world.width*0.5, game.world.height*0.5, 'Life lost, click to continue', textStyle);
+		lifeLostText.anchor.set(0.5);
+		lifeLostText.visible = false;
+		gameOverText = game.add.text(game.world.width*0.5, game.world.height*0.5, 'Game over. You did not save any money!', textStyle);
+		gameOverText.anchor.set(0.5);
+		gameOverText.visible = false;
+
+
+		startButton = game.add.button(game.world.width*0.5, game.world.height*0.5, 'button', startGame, this, 1, 0, 2);
+		startButton.anchor.set(0.5);
+    }
+
+    function update() {
+        game.physics.arcade.collide(ball, paddle, ballHitPaddle);
+        game.physics.arcade.collide(ball, bricks, ballHitBrick);
+        if(playing) {
+ 	       paddle.x = game.input.x || game.world.width*0.5;
+    	}
+    }
+
+    function initBricks() {
+        brickInfo = {
+            width: 50,
+            height: 20,
+            count: {
+                row: 7,
+                col: 3
+            },
+            offset: {
+                top: 50,
+                left: 60
+            },
+            padding: 10
+        };
+        bricks = game.add.group();
+
+        for(c=0; c<brickInfo.count.col; c++) {
+            for(r=0; r<brickInfo.count.row; r++) {
+                var brickX = (r*(brickInfo.width+brickInfo.padding))+brickInfo.offset.left;
+                var brickY = (c*(brickInfo.height+brickInfo.padding))+brickInfo.offset.top;
+                newBrick = game.add.sprite(brickX, brickY, 'brick');
+                game.physics.enable(newBrick, Phaser.Physics.ARCADE);
+                newBrick.body.immovable = true;
+                newBrick.anchor.set(0.5);
+                bricks.add(newBrick);
+            }
+        }
+    }
+
+    function ballHitBrick(ball, brick) {
+        var killTween = game.add.tween(brick.scale);
+		killTween.to({x:0,y:0}, 200, Phaser.Easing.Linear.None);
+		killTween.onComplete.addOnce(function(){
+		    brick.kill();
+		}, this);
+		killTween.start();
+        beep();
+
+        score = score*(1+interest/100)+1;
+        disp_score = score.toFixed(2);
+        scoreText.setText('Bank Balance: $'+disp_score);
+
+        interest += 0.1;
+        disp_interest = (10*interest).toFixed(1)/10
+        interestText.setText('Interest: '+disp_interest+'%');
+
+	    if (bricks.countLiving() == 1) {
+            game.paused = true;
+	        setTimeout(resetBricks,800);
+	    }
+    }
+
+    function resetBricks() {
+        game.paused = false;
+        ball.reset(game.world.width*0.5, game.world.height-25);
+        paddle.reset(game.world.width*0.5, game.world.height-5);
+
+        initBricks();
+
+        game.input.onDown.addOnce(function(){
+            lifeLostText.visible = false;
+            ball.body.velocity.set(150, -150);
+        }, this);
+
+    }
+
+    function ballLeaveScreen() {
+	    lives--;
+	    if(lives) {
+	        livesText.setText('Lives: '+lives);
+	        lifeLostText.visible = true;
+	        interest = 0
+	        interestText.setText('Interest: '+interest+'%');
+	        ball.reset(game.world.width*0.5, game.world.height-25);
+	        paddle.reset(game.world.width*0.5, game.world.height-5);
+	        game.input.onDown.addOnce(function(){
+	            lifeLostText.visible = false;
+	            ball.body.velocity.set(300*Math.random()-150, -150);
+	        }, this);
+	    }
+	    else {
+	     	if(disp_score > 0) {
+	     		gameOverText.setText('Game over. You saved $'+disp_score+'. Great job!');
+	     	}
+			gameOverText.visible = true;
+	    }
+	}
+
+	function ballHitPaddle(ball, paddle) {
+	    ball.animations.play('wobble');
+        ball.body.velocity.x = -1*12*(paddle.x-ball.x);
+        beep
+	}
+
+    function beep() {
+      (new
+        Audio(
+        "data:audio/wav;base64,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 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU="
+        )).play();
+    }
+
+	function startGame() {
+	    startButton.destroy();
+	    ball.body.velocity.set(300*Math.random()-150, -150);
+	    playing = true;
+	}
+
+</script>
+</body>
+</html>

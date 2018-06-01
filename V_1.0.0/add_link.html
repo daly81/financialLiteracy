@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <!-- css -->
+            <link href="user_account/css/bootstrap.css" rel="stylesheet" media="screen">
+            <link href="user_account/css/style.css" rel="stylesheet" media="screen">
+            <style>
+                table,td,tr{
+                    border: 1px solid;
+                    padding: 10px;
+                    margin: 10px; 
+                }
+            </style>
+        </head>
+        <body>
+            
+            <input type="text" name="link" id="link" placeholder="Key Word"/>
+            <input type="text" name="direct" id="direct" placeholder="Direct To"/>
+            <button type="submit" onclick="add_link()">SUBMIT</button>
+            
+            <div id="keyWordList"></div>
+            <table>
+                <th>
+                    <td>Key Word</td>
+                    <td>URL/Domain</td>
+                    <td>Remove</td>
+                </th>
+            </table>
+            
+            <!-- Bootstrap core JavaScript -->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script>
+                function add_link(){
+                    var data = {
+                      action: 'add_link',
+                      link: $('#link').val(),
+                      direct: $('#direct').val()
+                    }
+                    $.post('php/user_switch.php', data, function(res){
+                        var resp = JSON.parse(res);
+                        if (resp.success) {
+                            alert("Your key word and link has been added"); 
+                        }else{
+                            alert("Something went wrong"); 
+                        }
+                    });
+                }
+                
+                var data = {
+                    action: "get_links"
+                }
+                $.post("php/user_switch.php", data, function(res){
+                    var info = JSON.parse(res);
+                    var result = info.length;
+                    for (var i = 0; i < result; i++){
+                        $('table').append(
+                                          "<tr>" +
+                                            "<td class='key_id'>" + info[i].link_id + "</td>" + 
+                                            "<td class='key_word'>" + info[i].link + "</td>" +
+                                            "<td class='link_too'>" + info[i].direct + "</td>" +
+                                            "<td><button onclick='removeWord("+info[i].link_id+")'>Delete</button></td>" +
+                                          "</tr>" 
+                                          );
+                    }
+                })   
+               function removeWord(linkID) {
+                    var data = {
+                        action: "removeWord",
+                        link_id: linkID
+                    }
+                    $.post('php/user_switch.php', data, function(res){})
+               }
+            </script>
+        </body>
+    </html>

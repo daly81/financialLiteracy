@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Coming Soon - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    
+    
+    
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/fle.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="overlay"></div>
+
+    <div class="masthead masthead_main">
+      <div class="masthead-bg"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 my-auto">
+            <div class="masthead-content text-white py-5 py-md-0">
+              <h1 class="mb-3">FLE</h1>
+              <p class="mb-5">Financial Literacy Education</p>
+              <div class="input-group input-group-login">
+                <!--<input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon">-->
+                <div>
+                  <button class="btn btn-secondary" type="button" onclick="showLogin()">Log In</button>
+                  <button class="btn btn-secondary" type="button" onclick="showSignUp()">Sign Up</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--ROW-->
+      </div>
+    </div><!--masthead-->
+    
+    <!-- LOG IN -->
+    
+    <div class="masthead masthead_login hide">
+      <div class="masthead-bg"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 my-auto">
+            <div class="masthead-content text-white py-5 py-md-0">
+              <h1 class="mb-3">FLE</h1>
+              <p class="mb-5">Financial Literacy Education</p>
+              
+              <img class="loginHome" src="img/icon/ic_home_white_24px.svg"/>
+              <div style="margin: 10px"></div>
+              <div class="input-group input-group-login">
+                <input id="email" type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon" name="email">
+                <input id="password" type="password" class="form-control" placeholder="Enter password..." aria-label="Enter password..." aria-describedby="basic-addon" name="password">
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" onclick="login()">Log In</button>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div><!--ROW-->
+      </div>
+    </div><!--masthead-->
+    
+    <!-- SIGN UP -->
+    
+    <div class="masthead masthead_signup hide">
+      <div class="masthead-bg"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 my-auto">
+            <div class="masthead-content text-white py-5 py-md-0">
+              <h1 class="mb-3">FLE</h1>
+              <p class="mb-5">Financial Literacy Education</p>
+              <img class="signUpHome" src="img/icon/ic_home_white_24px.svg"/>
+              <div style="margin: 10px"></div>
+              <!--======== FORM ================-->
+              <form name="account_info" id="accountInfo">
+                <div class="input-group input-group-login">
+                  <input id="first_name" style="padding: 1rem" type="text" class="form-control" placeholder="First Name..." aria-label="Enter first name..." aria-describedby="basic-addon" name="first_name">
+                  <input id="last_name" style="padding: 1rem" type="text" class="form-control" placeholder="Last Name..." aria-label="Enter last name..." aria-describedby="basic-addon" name="last_name">
+                </div>
+                <input id="reg_email" style="padding: 1rem" type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon" name="reg_email">
+                <div class="input-group input-group-login">
+                  <input id="reg_password" type="password" class="form-control" placeholder="Enter password..." aria-label="Enter password..." aria-describedby="basic-addon" name="reg_password">
+                  <input id="reg_password_confirm" type="password" class="form-control" placeholder="Confrim password..." aria-label="Confirm password..." aria-describedby="basic-addon" name="reg_password_confirm">
+                  <div class="input-group-append">
+                    <button id="submit" class="btn btn-secondary" type="button" onclick="signUp()">Sign Up</button>
+                  </div>
+                </div>
+              </form>
+              <!--======== /FORM ================-->
+            </div>
+          </div>
+        </div><!--ROW-->
+      </div>
+    </div><!--masthead-->
+
+    <div class="social-icons">
+      <ul class="list-unstyled text-center mb-0">
+        <li class="list-unstyled-item">
+          <a href="#">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a href="#">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a href="#">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/vide/jquery.vide.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/fle.js"></script>
+  
+  
+    
+    
+    <script>
+      //=====================================REGISTER REGISTER REGISTER REGISTER==============================================================
+     
+      
+      function signUp() {
+          var sEmail = $('#reg_email').val();
+          if ($.trim(sEmail).length == 0) {
+              alert('Please enter valid email address');
+              return; 
+          }
+          if (validateEmail(sEmail)) {
+              check_for_email_match(); 
+          }
+          else {
+              alert('Invalid Email Address');
+              return
+          }
+      }
+      
+      function validateEmail(sEmail) {
+          var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+          if (filter.test(sEmail)) {
+              return true;
+          }
+          else {
+              return false;
+          }
+      }
+      //================================CREATE ACCOUNT CREATE ACCOUNT CREATE ACCOUNT CREATE ACCOUNT=================================
+      
+      
+      function check_for_email_match() {
+        var reg_email = $('#reg_email').val();
+        var checkEmail = {
+          action: "checkEmailMatch",
+          email: reg_email
+        }
+        $.post("php/user_switch.php", checkEmail, function(res){
+            var json = JSON.parse(res);
+            if(json.success){
+              createAccount(); 
+              console.log(res); 
+            }else{
+              alert("This Email has already been used to create an account.");
+              console.log(res);
+              return;
+              
+            }
+        })
+      }
+      
+      function createAccount(){
+        var reg_password = $('#reg_password').val();
+        var reg_password_confirm = $('#reg_password_confirm').val();
+        
+        if (reg_password == "") {
+            alert("You need a password to continue");
+            return;
+        } else if (reg_password != reg_password_confirm) {
+            alert("Passwords do not match!");
+            return
+        }
+        
+        var data = formToJSON('#accountInfo');
+        $.post("php/register.php", data, function(res){
+          var json = JSON.parse(res);
+          if (json.success) {
+            //DO SOMETHING
+            $('.masthead_signup').hide();
+            $('.masthead_login').show();
+            alert("You have successfuly made your account.  Please Sign in");
+          } else {
+            alert("Something went wrong.  Please try again later"); 
+          }
+        })
+      }
+         
+      function formToJSON(selector){
+          var dataObjects = $(selector).serializeArray()
+          var data = {};
+          $(dataObjects).each(function(){
+            data[this.name] = this.value;
+          })
+          return data;
+      }
+      //====================================================================================================================================
+      //==================LOGIN LOGIN LOGIN =========================================================================================
+      
+      
+        $(document).keypress(function(e){
+            var key = e.which;
+            if (key == 13 && $('#email').val() != "") {
+                login(); 
+            } else if (key == 13 && $('#reg_email').val() != "") {
+                signUp(); 
+            }
+        })
+      
+      function login(){
+          var data = {
+            action: 'login',
+            email: $('#email').val(),
+            password: $('#password').val()
+          }
+          $.post('php/user_switch.php', data, function(res){
+            var json = JSON.parse(res);
+            if(json.success){
+              window.location.replace('user_account/home.html'); 
+            }else{
+              alert("Password or email does not match our records"); 
+            }
+          });
+      }
+    </script>
+  </body>
+
+
+
+
+</html>

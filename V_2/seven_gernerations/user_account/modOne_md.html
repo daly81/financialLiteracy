@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="css/scroll.css" />
+
+
+
+  <script src="js/modernizr.custom.js"></script>
+
+  <style>
+    body{
+      background-image: url('img/eagle_story/cards/bg3.png');
+    }
+  </style>
+</head>
+
+<body onload="checkLoginState(), getUserInfo()">
+    <div class="menu-area">
+      <div id="dl-menu" class="dl-menuwrapper">
+        <button class="dl-trigger">Open Menu</button>
+        <ul class="dl-menu">
+          <li><a id="first_name"></a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="modOne.html">Module 1</a></li>
+          <li><a href="modTwo.html">Module 2</a></li>
+          <li><a href="modThree.html">Module 3</a></li>
+          <li><a href="modFour.html">Module 4</a></li>
+          <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+        </ul>
+      </div>
+
+      <!-- /dl-menuwrapper -->
+    </div>
+
+    <div class="container message">
+      <div class="row">
+        <div class="col-md-12 intro">
+          <div id="cardVertTwo" class="eachXCard">
+              <div class="front">
+                <h2>The decision making process</h2>
+              </div>
+              <div class="back">
+                <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                <h2>The decision-making process</h2>
+                <ul class="style-ul">
+                  <li>Identify the problem.</li>
+                  <li>Gather all the information you can and look for possible alternatives.</li>
+                  <li>Consider consequences for each alternative.</li>
+                  <li>Select the best course of action.</li>
+                  <li>Evaluate the outcome.</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div><!-- row -->
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="card" class="eachCard">
+                  <div class="front">
+                    <h2>Factors that can influence a decision </h2>
+                  </div>
+                  <div class="back">
+                      <a class="speak"><img class="img-responsive" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                      <a class="stop"><img class="img-responsive" src="img/ic_stop_black_24dp_2x.png" /></a>
+                      <h2>Factors that can influence a decision </h2>
+                      <p><strong>Values</strong></p><p>What is important to you, your family, and others in your life.</p>
+                      <p><strong>Habits</strong></p><p>You are accustomed to doing it this way.</p>
+                      <p><strong>Feelings</strong></p><p>Any and all emotions you have can affect decision making.</p>
+                      <p><strong>Family</strong></p><p>Your family’s preference.  Decisions other's in your family have made.</p>
+                      <p><strong>Risks and consequences</strong></p><p>How much you may win.  How much you may lose.</p>
+                  </div>
+                </div>
+            </div><!-- col-md-6 -->
+            <div class="col-md-6" >
+                <div id="cardTwo" class="eachCard">
+                  <div class="front">
+                    <h2>Common decision-making strategies</h2>
+                  </div>
+                  <div class="back">
+                    <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                    <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                    <h2>Common decision-making strategies</h2>
+                    <p><strong>Avoidance</strong></p><p>Trying to avoid the worse possible outcome.</p>
+                    <p><strong>Compliance</strong></p><p>following the expectations from your peers(or family members).</p>
+                    <p><strong>Desire</strong></p><p>Ignoring any or all the risk involed by picking the option that will give you the highest pay off.</p>
+                    <p><strong>Security</strong></p><p>The option the will offer the least risk and little return.</p>
+                    <p><strong>Spontaneity</strong></p><p>Going with the first option you see with no consideration of the risks involved.</p>
+                  </div>
+                </div>
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+
+        <div class="row">
+          <div class="col-md-12 intro">
+            <div id="cardVertThree" class="eachXCard">
+                <div class="front">
+                  <h2>Economic influences on decision making</h2>
+                </div>
+                <div class="back">
+                  <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                  <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                  <h2>Economic influences on decision making</h2>
+                  <p><strong>Consumer prices</strong></p><p>Changes in the buying power of the dollar, inflation.</p>
+                  <p><strong>Consumer spending</strong></p><p>Demand for goods and services.</p>
+                  <p><strong>Interest rates</strong></p><p>The cost of borrowing money.</p>
+                  <p><strong>Money supply</strong></p><p>Funds available for spending in the economy.</p>
+                  <p><strong>Unemployment</strong></p><p>The number of people without employment who are willing to work.</p>
+                  <p><strong>Gross domestic product (GDP)</strong></p><p>Total value of goods and services produced within the country.</p>
+                </div>
+            </div>
+          </div>
+        </div><!--row -->
+        <div class="row">
+            <div class="col-md-6" >
+                <div id="cardThree" class="eachCard">
+                  <div class="front">
+                    <h2>Risks associated with decision making</h2>
+                  </div>
+                  <div class="back">
+                    <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                    <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                    <h2>Risks associated with decision making</h2>
+                      <p><strong>Income risk</strong></p><p>How much job security do you have?  A change in your career or loss of employment can lower your income and reduce your buying power.</p>
+                      <p><strong>Inflation risk</strong></p><p>Rising prices cause lower buying power. For example, buying a house at the right time (when the market allows for lower prices) will give you more buying power.</p>
+                      <p><strong>Interest-rate risk</strong></p><p>Anytime you are borrowing, or saving money the interest rate will a role.  It will have an affect on how much it will cost you to borrow, or how much your will gain while saving. </p>
+                      <p><strong>Personal risks</strong></p><p>Personal risks come in the form of health concerns, family issues, or anything that could jeopardize your decision.</p>
+
+                  </div>
+                </div>
+            </div><!-- col-md-6 -->
+            <div class="col-md-6" >
+                <div id="cardFour" class="eachCard">
+                  <div class="front">
+                    <h2>Opportunity costs and the <u>time value</u> of money</h2>
+                  </div>
+                  <div class="back">
+                    <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                    <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                      <p><strong>Opportunity costs</strong></p><p>Refer to the cost of your time, the cost of your effort, and the actual cost.  Making tough decisions may involve one or more of these resources.</p>
+                      <p><strong>Financial opportunity costs</strong></p><p>will come with a monetay value.  For example, withdrawing some of your money from your savings account means you can no longer collect interest on that money.</p>
+                      <p><strong>Personal opportunity costs</strong></p><p>Think of the trade off in the value of having a full time job.  Working will mean lost time for leisure, but the trade off is work experience and an income.  Losing leisure time, or time that could be spent with friends for family comes at a <i>personal cost</i>.</p>
+                      <p><strong>The Time value of money</strong></p><p>Can be used to measure financial opportunity costs using interest calculations. </p>
+                      <ul>
+                        <li>
+                          $1000 X .04 (4 %) X 1 year = $40.  Over 10 years, that $40 a year saved at 4% would have a value of over $480 due to compound interest.
+                        </li>
+                        <li>
+                          Spending $1,000 from a savings account paying 4 percent a year means an opportunity cost of $40 in lost interest.
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <h1 ><a href="modOne_mm.html" style="margin: 10px">Continue To Module One - Making Money</a></h1>
+          </div>
+        </div>
+    </div><!-- container -->
+
+
+    <!-- js -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/jquery.dlmenu.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="dist/jquery.mark.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/speech.js"></script>
+
+    <script>
+      $("#card, #cardTwo, #cardThree, #cardFour").flip();
+
+      $("#cardVert, #cardVertTwo, #cardVertThree, #cardVertFour").flip({
+        axis: 'x',
+        trigger: 'click'
+      });
+
+
+    </script>
+
+</body>
+
+</html>

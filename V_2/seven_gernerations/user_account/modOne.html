@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="Hover-master/css/hover.css" rel="stylesheet" media="screen" />
+  <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body onload="checkLoginState(), getUserInfo()">
+    <div class="menu-area">
+      <div id="dl-menu" class="dl-menuwrapper">
+        <button class="dl-trigger">Open Menu</button>
+        <ul class="dl-menu">
+          <li><a id="first_name"></a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="modOne.html" class="active">Module 1</a></li>
+          <li><a href="modTwo.html">Module 2</a></li>
+          <li><a href="modThree.html">Module 3</a></li>
+          <li><a href="modFour.html">Module 4</a></li>
+          <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+        </ul>
+      </div>
+      <!-- /dl-menuwrapper -->
+    </div>
+
+    <!-- CONTENT HEADER-->
+    <!--<div class="container-fluid">-->
+    <!--    <div class="row header">-->
+    <!--        <div class="col col-header">-->
+    <!--            Welcome to Module 1-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--    <div class="row">-->
+    <!--      <a href="../quiz/quiz.php" class="btn btn-info">Begin Quiz</a>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!-- Container-fluid -->
+    <div class="container-fluid message">
+      <div class="row">
+        <div id="bq" class="col-md-12 cards hvr-bounce-to-right">
+          <h2>Making Decisions</h2>
+          <div id="overview-making-decisions" class="hover-bounce">
+              <h3>Overview</h3>
+              <p>
+                Module one will provide you with an understanding of the importance of making good personal decisions, designed
+                to develop an awareness of the many decisions we all have to make on a daily basis.  Many of which
+                come at a cost.  Either at a personal cost, or a financial cost.  We want you to develop abilities to become
+                better decision makers!
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="entrepreneur" class="col-md-12 cards hvr-bounce-to-left">
+          <h2>Making Money</h2>
+          <div id="overview-making-money" class="hover-bounce">
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="resource" class="col-md-12 cards hvr-bounce-to-right">
+          <h2>Budgeting</h2>
+          <div id="overview-budgeting" class="hover-bounce">
+            <h3>Overview</h3>
+            <p>
+              The lessons in this unit will help you to monitor and plan your spending habits so they will achieve long-term financial security
+              and have the money available to “have fun”. A budget is a plan for wise spending and saving based on income and expenses.
+              You are setting goals and deciding in advance how much of your income you want committed to necessities,
+              savings and “mad money” (spend on whatever you want). Budgeting does not mean you are a “penny pincher” and have no fun.
+              By tracking your expenses you might be surprised to discover you are spending ten dollars a day on lunch and coffee,
+              which equates to $3650.00 a year. By budgeting you may decide to “brown bag it” and save that money for a vacation.
+              In fact budgeting may be just what you need to find the money for the fun things you want to do.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 beginQuiz">
+          <h2>BEGIN QUIZ</h2>
+        </div>
+      </div>
+
+    </div><!-- container-fluid message -->
+
+    <!-- js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/jquery.dlmenu.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- <script src="contactform/contactform.js"></script> -->
+    <script src="dist/jquery.mark.js"></script>
+
+    <script>
+
+      $('#bq').click(function(){
+        //return false;
+        window.location.replace('modOne_md.html');
+      });
+      $('#entrepreneur').click(function() {
+        // return false;
+        window.location.replace('modOne_mm.html');
+      });
+      $('#resource').click(function() {
+        // return false;
+        window.location.replace('modOne_b.html');
+      });
+      $('.beginQuiz').click(function() {
+        // return false;
+        window.location.replace('../quiz/quiz.php');
+      });
+    </script>
+
+</body>
+
+</html>

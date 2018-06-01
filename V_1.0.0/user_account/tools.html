@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="color/default.css" rel="stylesheet" media="screen">
+  <script src="js/modernizr.custom.js"></script>
+  
+
+</head>
+
+<body>
+    <div class="menu-area">
+      <div id="dl-menu" class="dl-menuwrapper">
+        <button class="dl-trigger">Open Menu</button>
+        <ul class="dl-menu">
+          <li><a id="first_name"></a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="modOne.html">Module 1</a></li>
+          <li><a href="modTwo.html">Module 2</a></li>
+          <li><a href="modThree.html">Module 3</a></li>
+          <li><a href="modFour.html">Module 4</a></li>
+          <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+        </ul>
+      </div>
+      <!-- /dl-menuwrapper -->
+    </div>
+    
+    <div class="container-fluid"><!-- CONTENT HEADER-->
+        <div class="row header">
+            <div class="col col-header">
+                Tools
+            </div>
+        </div>
+    </div><!-- Container-fluid -->
+    
+    <div class="container-fluid"><!-- MAIN CONTENT -->
+        <div class="content content-btn">
+          <div class="row">
+            <button class="btn btn-info" onclick="showLoanCalc()">Loan Calculator</button>
+          </div>
+        </div>
+        <div class="content calc"><!-- ================== Content Calculator ===============-->
+            <div class="row">
+              <h2 style="text-align: center;">Loan Calculator</h2>
+              <div class="col-md-4 col-md-offset-1 loan-data">
+                <h3>Enter Loan Data</h3>
+                <div class="form-group calc-group">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="amount">Amount of loan ($): </label>
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" id="amount" onchange="calculate();">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group calc-group">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="apr">Annual interest (%): </label>
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" id="apr" onchange="calculate();">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group calc-group">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="years">Repayment period (years): </label>
+                    </div>
+                    <div class="col-md-4">
+                      <input type="number" id="years" onchange="calculate();">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group calc-group">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="ap">Approximate Payments: </label>
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-info" onclick="calculate()">Calculate</button>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- col-md-4 col-md-offset loan-data -->
+              <div class="col-md-4 loan-data">
+                <strong>Loan Balance, Cumulative Equity, and Interest Payments</strong>
+                <canvas id="graph" width="400" height="250"></canvas>
+              </div>
+              <div class="col-md-2 loan-data">
+                <h4>Monthly payment</h4>
+                <p class="output" id="payment"></p>
+                <h4>Total payment</h4>
+                <p class="output" id="total"></p>
+                <h4>Total Interest</h4>
+                <p class="output" id="totalinterest"></p>
+              </div>
+            </div><!--master row -->
+            <div class="row">
+              <button class="btn btn-secondary clear">
+                Exit
+                <img src="img/ic_close_black_24dp_1x.png">
+              </button>
+            </div>
+        </div><!-- ================== Content Calculator ===============-->
+    </div><!-- Container-fluid -->
+
+    <!-- js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/jquery.dlmenu.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/calc.js"></script>
+    <script src="contactform/contactform.js"></script>
+  
+    <script>
+      $(document).ready(function(){
+        checkLoginState();
+        getUserInfo();
+      })
+      function showLoanCalc() {
+        $('.calc').slideDown(); 
+      }
+      $('.clear').click(function(){
+        $('.calc').slideUp(); 
+      })
+    </script>
+
+</body>
+
+</html>

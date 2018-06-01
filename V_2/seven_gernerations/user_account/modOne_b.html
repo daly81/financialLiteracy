@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="css/scroll.css" />
+
+
+
+  <script src="js/modernizr.custom.js"></script>
+
+  <style>
+    body{
+      background-image: url('img/eagle_story/cards/bg3.png');
+    }
+  </style>
+</head>
+
+<body onload="checkLoginState(), getUserInfo()">
+    <div class="menu-area">
+      <div id="dl-menu" class="dl-menuwrapper">
+        <button class="dl-trigger">Open Menu</button>
+        <ul class="dl-menu">
+          <li><a id="first_name"></a></li>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="modOne.html">Module 1</a></li>
+          <li><a href="modTwo.html">Module 2</a></li>
+          <li><a href="modThree.html">Module 3</a></li>
+          <li><a href="modFour.html">Module 4</a></li>
+          <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+        </ul>
+      </div>
+
+      <!-- /dl-menuwrapper -->
+    </div>
+
+    <div class="container message">
+      <div class="row">
+        <div class="col-md-12 intro">
+          <div id="cardVertTwo" class="eachXCard">
+              <div class="front">
+                <h2>Personal and financial goals</h2>
+              </div>
+              <div class="back">
+                <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                <h2>Personal and financial goals</h2>
+                <ul class="style-ul">
+                  <li>Effective money management starts with goal setting. “If you don’t know where you are going, you may end up somewhere else and not even know it.”</li>
+                  <li>Financial goals should be realistic, be specific, have a time frame, and imply an action to be taken. </li>
+                  <li>Take some time and effort to develop financial goals. </li>
+                  <li>Identify and prioritize personal and financial goals.</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div><!-- row -->
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="card" class="eachCard">
+                  <div class="front">
+                    <h2>Goal setting guidelines </h2>
+                  </div>
+                  <div class="back">
+                      <a class="speak"><img class="img-responsive" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                      <a class="stop"><img class="img-responsive" src="img/ic_stop_black_24dp_2x.png" /></a>
+                      <h2>Goal setting guidelines</h2>
+                      <p>Be realistic - A student working part-time is not likely to be able to afford a new car every couple of years. </p>
+                      <p>Be stated in specific and measurable terms - “I plan/want to. . .” save $5,000 for a down payment to buy a house.” </p>
+                      <p>Have a time frame - “To pay off my credit card within the next 18 months.” </p>
+                      <p>State the action to be taken - “To start an automatic deposit savings account with monthly withdrawals from my chequing account.”</p>
+                  </div>
+                </div>
+            </div><!-- col-md-6 -->
+            <div class="col-md-6" >
+                <div id="cardTwo" class="eachCard">
+                  <div class="front">
+                    <h2>The budgeting process</h2>
+                  </div>
+                  <div class="back">
+                    <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                    <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                    <h2>The budgeting process</h2>
+                    <p>Assess your personal and financial situation - needs, values, life situation.</p>
+                    <p>Set personal and financial goals.</p>
+                    <p>Create a budget for fixed and variable expenses based on projected income.</p>
+                    <p>Monitor current spending (saving, investing) patterns. </p>
+                    <p>Compare your budget to what you have actually spent.</p>
+                  </div>
+                </div>
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+
+        <div class="row">
+          <div class="col-md-12 intro">
+            <div id="cardVertThree" class="eachXCard">
+                <div class="front">
+                  <h2>Setting up and maintaining a budget</h2>
+                </div>
+                <div class="back">
+                  <a class="speak"><img class="text_to_speach" src="img/ic_play_arrow_black_24dp_2x.png" /></a>
+                  <a class="stop"><img class="text_to_speach" src="img/ic_stop_black_24dp_2x.png" /></a>
+                  <h2>Setting up and maintaining a budget</h2>
+                  <ul>
+                    <li>Estimate your income</li>
+                    <li>
+                      Estimate your expenses to include:
+                      <ul>
+                        <li>Fixed regular monthly expenses </li>
+                        <li>Fixed irregular monthly expenses </li>
+                        <li>Flexible monthly expenses </li>
+                        <li>“Mad money”/Personal expenses </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Estimate your future expenses
+                      <ul>
+                        <li>Begin by keeping a record of everything you spend. </li>
+                        <li>What are your financial goals and your plans for obtaining those goals? </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Cope with change
+                      <ul>
+                        <li>Plan for new situations.</li>
+                        <li>Plan for changing conditions that increase or decrease your expenses.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Keep your personal and financial goals in mind
+                      <ul>
+                        <li>Set money aside to help meet financial goals.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Balance your budget
+                      <ul>
+                        <li>Each month, compare your income to your expenses. Continue reworking your budget until your income is greater than your expenses. </li>
+                        <li>Discuss different budget options available. </li>
+                      </ul>
+                    </li>
+                    <li>Practice setting up a personal budget</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div><!--row -->
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <h1 ><a href="../quiz/quiz.php" style="margin: 10px">Continue To Module One Quiz</a></h1>
+          </div>
+        </div>
+    </div><!-- container -->
+
+
+    <!-- js -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/jquery.dlmenu.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="dist/jquery.mark.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/speech.js"></script>
+
+    <script>
+      $("#card, #cardTwo, #cardThree, #cardFour").flip();
+
+      $("#cardVert, #cardVertTwo, #cardVertThree, #cardVertFour").flip({
+        axis: 'x',
+        trigger: 'click'
+      });
+
+
+    </script>
+
+</body>
+
+</html>

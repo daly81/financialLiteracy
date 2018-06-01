@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="color/default.css" rel="stylesheet" media="screen">
+  <script src="js/modernizr.custom.js"></script>
+
+
+</head>
+
+<body onload="checkLoginState(), getUserInfo()">
+  <div class="menu-area">
+    <div id="dl-menu" class="dl-menuwrapper">
+      <button class="dl-trigger">Open Menu</button>
+      <ul class="dl-menu">
+        <li><a id="first_name"></a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="modOne.html">Module 1</a></li>
+        <li><a href="modTwo.html" class="active">Module 2</a></li>
+        <li><a href="modThree.html">Module 3</a></li>
+        <li><a href="modFour.html">Module 4</a></li>
+        <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+      </ul>
+    </div>
+    <!-- /dl-menuwrapper -->
+  </div>
+
+ <!-- CONTENT MAIN-->
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col col-header">
+                Welcome to Module 2
+            </div>
+        </div>
+        <div class="row">
+          <!-- <a href="../quiz/quiz_two.php" class="btn btn-info">Begin Quiz</a> -->
+        </div>
+    </div><!-- Container-fluid -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="message"></div>
+        </div>
+      </div>
+    </div>
+
+  <!-- js -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.smooth-scroll.min.js"></script>
+  <script src="js/jquery.dlmenu.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script src="dist/jquery.mark.js"></script>
+
+</body>
+
+</html>

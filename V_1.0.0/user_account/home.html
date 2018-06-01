@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="color/default.css" rel="stylesheet" media="screen">
+  <script src="js/modernizr.custom.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+  <!-- =======================================================
+    Theme Name: Mamba
+    Theme URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+
+</head>
+
+<body onload="checkLoginState(), getUserInfo()">
+  <div class="menu-area">
+    <div id="dl-menu" class="dl-menuwrapper">
+      <button class="dl-trigger">Open Menu</button>
+      <ul class="dl-menu">
+        <li><a id="first_name"></a></li>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="modOne.html">Module 1</a></li>
+        <li><a href="modTwo.html">Module 2</a></li>
+        <li><a href="modThree.html">Module 3</a></li>
+        <li><a href="modFour.html">Module 4</a></li>
+        <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+        <!--
+        <li>
+          <a href="#">Sub Menu</a>
+          <ul class="dl-submenu">
+            <li><a href="#">Sub menu</a></li>
+            <li><a href="#">Sub menu</a></li>
+          </ul>
+        </li>
+        -->
+      </ul>
+    </div>
+    <!-- /dl-menuwrapper -->
+  </div>
+
+  <!-- intro area -->
+  <div id="intro">
+
+    <div class="intro-text">
+      <div class="container-fluid text-container">
+        <div class="row title">
+          Financial Guidance & Games For Indigenous Youth
+        </div>
+      </div>
+    </div><!-- .intro_text -->
+    
+    <div class="container-fluid">
+      <div class="row">
+        <a class="link" href="tools.html">
+          <div class="col-md-4 t2 inner-col">
+            <p>Tools</p>
+          </div>
+        </a>
+        <div class="col-md-8 t3">
+          <!--<p>Developed with Elders, Educators, Business  People, Peers and other Experts</p>-->
+          <div class="row">
+            <a class="link" href="modOne.html"><div class="col-md-3 inner-col">Module One</div></a>
+            <a class="link" href="modTwo.html"><div class="col-md-3 inner-col">Module Two</div></a>
+            <a class="link" href="modThree.html"><div class="col-md-3 inner-col">Module Three</div></a>
+            <a class="link" href="modFour.html"><div class="col-md-3 inner-col">Module Four</div></a>
+          </div>
+        </div>
+      </div>
+    </div><!-- container-fluid -->
+    
+    <div class="container-fluid">
+      <div class="row">
+        <a href="../../Bank Breaker/index.html"><div id="g1" class="col-md-3 gameField">Game One</div></a>
+        <div id="g2" class="col-md-3 gameField">
+          Game Two
+        </div>
+        <div id="g3" class="col-md-3 gameField">
+          Game Three
+        </div>
+        <div id="g4" class="col-md-3 gameField">
+          Game Four
+        </div>
+      </div>
+    </div>
+    
+    
+  </div><!-- #intro -->
+
+
+  <!-- js -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.smooth-scroll.min.js"></script>
+  <script src="js/jquery.dlmenu.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="dist/jquery.mark.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script>   
+    //LOGOUT
+    function logout(){
+      var data = {
+        action: "logout"
+      }
+      $.post("../php/user_switch.php", data, function(res){
+        //console.log(res)
+        var json = $.getJSON(res);
+        if(json.success){
+          window.location.replace('../index.html');
+        }else{
+          //TODO Something when logout fails, however unlikely
+        }
+      })
+    }
+  
+  </script>
+
+</body>
+
+</html>

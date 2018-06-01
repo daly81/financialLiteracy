@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Literacy Education</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- css -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="color/default.css" rel="stylesheet" media="screen">
+  <script src="js/modernizr.custom.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Mamba
+    Theme URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+
+
+</head>
+
+<body onload="checkLoginState(), getUserInfo(), unlockGames()">
+  <div class="menu-area">
+    <div id="dl-menu" class="dl-menuwrapper">
+      <button class="dl-trigger">Open Menu</button>
+      <ul class="dl-menu">
+        <li><a id="first_name"></a></li>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="modOne.html">Module 1</a></li>
+        <li><a href="modTwo.html">Module 2</a></li>
+        <li><a href="modThree.html">Module 3</a></li>
+        <li><a href="modFour.html">Module 4</a></li>
+        <li><a href="" id="log_out" onclick="logout()" name="log_out">LOG OUT</a></li>
+        <!--
+        <li>
+          <a href="#">Sub Menu</a>
+          <ul class="dl-submenu">
+            <li><a href="#">Sub menu</a></li>
+            <li><a href="#">Sub menu</a></li>
+          </ul>
+        </li>
+        -->
+      </ul>
+    </div>
+    <!-- /dl-menuwrapper -->
+  </div>
+
+  <!-- intro area -->
+  <div id="intro">
+
+    <div class="intro-text off_device">
+      <div class="container-fluid text-container">
+        <div class="row title">
+          Financial Guidance & Games For Indigenous Youth
+        </div>
+      </div>
+    </div><!-- .intro_text -->
+
+    <div class="container-fluid">
+      <div id="mod_row" class="row">
+        <div id="tools" class="col-md-4 t2 inner-col">
+          <p>Loan Calculator</p>
+        </div>
+        <div class="col-md-8 t3">
+          <div class="row mods" style="min-height: 171px !important">
+            <a class="link" href="modOne.html"><div class="col-md-3 inner-col">Module One<img id="eagle_img" class="img-responsive" src="img/home_icons/eagle2.png"></div></a>
+            <a class="link" href="modTwo.html"><div class="col-md-3 inner-col">Module Two<img id="bear_img" class="img-responsive" src="img/home_icons/bear2.png"></div></a>
+            <a class="link" href="modThree.html"><div class="col-md-3 inner-col">Module Three<img id="squirl_img" class="img-responsive" src="img/home_icons/squirl2.png"></div></a>
+            <a class="link" href="modFour.html"><div class="col-md-3 inner-col">Module Four <img id="turtle_img" class="img-responsive" src="img/home_icons/turtle2.png"></div></a>
+          </div>
+        </div>
+      </div>
+    </div><!-- container-fluid -->
+
+
+    <div class="container-fluid">
+      <div class="row bank_breaker_text">
+        Bank Breaker
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <a id="gameOne">
+          <div id="g1" class="col-md-3 overlay red">
+            <img class="img-responsive" src="img/landing/eagle.png">
+          </div>
+        </a>
+        <a id="gameTwo">
+          <div id="g2" class="col-md-3 overlay red">
+            <img class="img-responsive" src="img/landing/bear.png">
+          </div>
+        </a>
+        <a id="gameThree">
+          <div id="g3" class="col-md-3 overlay red">
+            <img class="img-responsive" src="img/landing/squirrel.png">
+          </div>
+        </a>
+        <a id="gameFour">
+          <div id="g4" class="col-md-3 overlay red">
+            <img class="img-responsive" src="img/landing/turtle.png">
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+  </div><!-- #intro -->
+  <script>
+
+
+
+  </script>
+
+  <!-- js -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.smooth-scroll.min.js"></script>
+  <script src="js/jquery.dlmenu.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="dist/jquery.mark.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script>
+    //LOGOUT
+    function logout(){
+      var data = {
+        action: "logout"
+      }
+      $.post("../php/user_switch.php", data, function(res){
+        //console.log(res)
+        var json = $.getJSON(res);
+        if(json.success){
+          window.location.replace('../index.html');
+        }else{
+          //TODO Something when logout fails, however unlikely
+        }
+      })
+    }
+
+    $('#tools').click(function(){
+      window.location.replace('tools.html');
+    })
+
+    //=======================================GAME LOCK=======================================
+
+
+
+    function unlockGames(){
+      var quiz_one = {
+        action: 'get_game_score',
+        quiz_number: 1
+      }
+      $.post('../php/user_switch.php', quiz_one, function(res){
+        var score = JSON.parse(res);
+        console.log(score);
+        if (score.percent >= 30){
+          $('#g1').removeClass("overlay");
+          $('#g1').removeClass("red");
+          $('#g1').addClass("gameField");
+          $('#gameOne').attr('href','../Bank-Breaker/index.html');
+        } else {
+          $('#g1').click(function(){
+            alert('Complete Module 1 quiz to get access to this game');
+          })
+        }
+      })
+
+      var quiz_two = {
+        action: 'get_game_score',
+        quiz_number: 2
+      }
+      $.post('../php/user_switch.php', quiz_two, function(res){
+        var score = JSON.parse(res);
+        console.log(score);
+        if (score.percent >= 30){
+          $('#g2').removeClass("overlay");
+          $('#g2').removeClass("red");
+          $('#g2').addClass("gameField");
+          $('#gameTwo').attr('href','../Bank-Breaker/index2.html');
+        } else {
+          $('#g2').click(function(){
+            alert('Complete Module 2 quiz to get access to this game');
+          })
+        }
+      })
+
+      var quiz_three = {
+        action: 'get_game_score',
+        quiz_number: 3
+      }
+      $.post('../php/user_switch.php', quiz_three, function(res){
+        var score = JSON.parse(res);
+        console.log(score);
+        if (score.percent >= 30){
+          $('#g3').removeClass("overlay");
+          $('#g3').removeClass("red");
+          $('#g3').addClass("gameField");
+          $('#gameThree').attr('href','../Bank-Breaker/index3.html');
+        } else {
+          $('#g3').click(function(){
+            alert('Complete Module 3 quiz to get access to this game');
+          })
+        }
+      })
+
+      var quiz_four = {
+        action: 'get_game_score',
+        quiz_number: 4
+      }
+      $.post('../php/user_switch.php', quiz_four, function(res){
+        var score = JSON.parse(res);
+        console.log(score);
+        if (score.percent >= 30){
+          $('#g4').removeClass("overlay");
+          $('#g4').removeClass("red");
+          $('#g4').addClass("gameField");
+          $('#gameFour').attr('href','../Bank-Breaker/index4.html');
+        } else {
+          $('#g4').click(function(){
+            alert('Complete Module 4 quiz to get access to this game');
+          })
+        }
+      })
+    }
+  </script>
+
+</body>
+
+</html>

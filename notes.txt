@@ -1,0 +1,28 @@
+
+Database: There are two accounts, root and flea. The flea account has permissions restricted to the 'flea' schema.
+root x1gb@r
+flea 121murray
+
+----------------
+
+SSL Certificates: Use the free "let's encrypt" service. This is handled automatically by a cron job that runs
+every 12 hours to see if the certificates need to be renewed, which is the rate certbot recommends.
+
+----------------
+
+Web Server: An apache httpd server hosts sevengenerationsfinanacial.com from /www/sevengenerationsfinancial.com/.
+It is hosted on port 3000 locally only.
+
+NGINX is used to forward ports for various domains and managed SSL encryption. This way apache
+httpd doesn't need to be configured for SSL (which is more complicated) AND, much more nicely, you
+can run different kinds of servers like a node server. You would just have to host it on port
+locally (like 3001) make an nginx config file (duplicate one from /www/nginx as a template) and
+generate a certbot certificate.
+
+-----------------
+
+PHP: Has a number of modules that just came with MAMP/WAMP but here have to be installed manually
+in order to use them. Thing like PDO and json_encode are modules. I've already installed those two
+but if you need to install one you can find them with the 'pacs' tool by searching for php. You'll
+know if you're missing a module if a function you think should exist (like json_encode) comes up
+as unknown.
